@@ -1,0 +1,93 @@
+== Description
+   The 'use' library allows you to selectively mixin methods from a given
+   module and alias them on the fly if desired.
+
+== Prerequisites
+   Ruby 1.8.0 or later
+   structured_warnings 0.1.1 or later
+   
+== Installation
+=== Standard
+   rake test (optional)
+   rake install
+   
+=== Gem install
+   rake test (optional)
+   rake install_gem
+
+== Synopsis
+   require 'use'
+   
+   module Foo
+      def bar
+         puts "hello"
+      end
+      def baz
+         puts "world"
+      end
+   end
+
+   module Test
+      def bar
+         puts "goodbye"
+      end
+      def blah
+         puts "new york"
+      end
+   end
+
+   class Zap
+      use Foo, :bar
+      use Test, :blah
+   end
+
+   z = Zap.new
+
+   z.bar  # => "hello"
+   z.blah # => "new york"
+   z.baz  # => NoMethodError
+   
+   # Using the new keywords
+   class MyKlass
+      use Foo, :alias => {:bar => :test}
+   end
+   
+   m = MyKlass.new
+   m.test # => "hello"
+   m.bar  # => NoMethodError
+   
+== Constants
+USE_VERSION
+   The version of this library. This is a string.
+   
+== Notes
+   In $VERBOSE mode this library will issue a MethodRedefinedWarning if you
+   shadow an existing method. See the documentation for structured_warnings
+   for more details.
+
+== Acknowledgements
+   Thanks go to Ara Howard for providing the original solution and to
+   Mauricio Fernandez, whose blog I plagiarized (and with whom I communicated)
+   in order to implement fine-grained mixins.
+
+== Known Bugs
+   Some versions of Ruby 1.9.x may emit a warning in verbose mode. This is a
+   bug in Ruby 1.9.x and can be ignored.
+   
+   If you find any bugs please log them on the project page at
+   http://www.rubyforge.org/projects/shards.
+   
+== Questions?
+   Please post your comment or question on one of the forums on the project
+   page at http://www.rubyforge.org/projects/shards.  Just click the 'Forums'
+   link.
+
+== License
+   Artistic 2.0
+
+== Copyright
+   (C) 2005-2009, Daniel J. Berger
+   All Rights Reserved
+
+== Author
+   Daniel J. Berger

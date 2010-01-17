@@ -1,0 +1,9 @@
+* CHANGES
+* MANIFEST
+* README
+* Rakefile
+* use.gemspec
+* examples/example_use.rb
+* lib/use.rb
+* test/test_use.rb
+* test/sample_data.rb
