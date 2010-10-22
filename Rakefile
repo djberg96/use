@@ -1,26 +1,31 @@
 require 'rake'
 require 'rake/testtask'
-require 'rbconfig'
-include Config
 
-desc 'Install the use package (non-gem)'
-task :install do
-   sitelibdir = CONFIG["sitelibdir"]
-   file = "lib/use.rb"
-   FileUtils.cp(file, sitelibdir, :verbose => true)
+desc "Cleanup any .gem or .rbc files"
+task :clean do
+  Dir['*.gem'].each{ |f| File.delete(f) }
+  Dir['**/*.rbc'].each{ |f| File.delete(f) } # Rubinius
 end
 
-task :gem do
-   spec = eval(IO.read('use.gemspec'))
-   Gem::Builder.new(spec).buildend
+namespace :gem do
+  desc "Create the use gem"
+  task :create => [:clean] do
+    spec = eval(IO.read('use.gemspec'))
+    Gem::Builder.new(spec).build
+  end
 
-task :install_gem => [:gem] do
-   file = Dir["*.gem"].first
-   sh "gem install #{file}"
+  desc "Install the use gem"
+  task :install => [:create] do
+    file = Dir["*.gem"].first
+    sh "gem install #{file}"
+  end
 end
 
 Rake::TestTask.new do |t|
-   t.libs << 'test'
-   t.verbose = true
-   t.warning = true
+  task :test => :clean
+  t.libs << 'test'
+  t.verbose = true
+  t.warning = true
 end
+
+task :default => :test
