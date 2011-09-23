@@ -25,7 +25,7 @@ class TC_Use < Test::Unit::TestCase
    end
 
    def test_version
-      assert_equal('1.3.2', Class::USE_VERSION)
+      assert_equal('1.3.3', Class::USE_VERSION)
    end
 
    def test_mod_a_methods
