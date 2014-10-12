@@ -1,3 +1,7 @@
+== 1.3.3 - 12-Oct-2014
+* Rakefile, gemspec and README updates.
+* Fixed an unused variable warning.
+
 == 1.3.2 - 8-Oct-2009
 * Updated and fixed gemspec.
 * Added the :gem rake task.
