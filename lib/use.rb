@@ -53,12 +53,12 @@ class Class
   #  z.baz  # => NoMethodError - wasn't mixed in
   #  z.zap  # => NoMethodError - wasn't mixed in
   #  z.blah # => "new york"
-  #   
+  #
   #  # Alias a method on the fly
   #  class MyKlass
   #     use Alpha, :alias => {:bar, :test}
   #  end
-  #   
+  #
   #  m = MyKlass.new
   #  m.test # => 'hello'
   #  m.bar  # => NoMethodError - was aliased to 'test'
@@ -72,7 +72,6 @@ class Class
   #  preserve my sanity, all method names are converted to strings.
   #
   def use(*args)
-    valid_keys = %w/include exclude alias/
     excluded_methods = []
     included_methods = []
     aliased_methods  = []
