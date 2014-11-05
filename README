@@ -1,60 +1,53 @@
 == Description
-   The 'use' library allows you to selectively mixin methods from a given
-   module and alias them on the fly if desired.
+  The 'use' library allows you to selectively mixin methods from a given
+  module and alias them on the fly if desired.
 
 == Prerequisites
-   Ruby 1.8.0 or later
-   structured_warnings 0.1.1 or later
+  structured_warnings 0.1.1 or later
    
 == Installation
-=== Standard
-   rake test (optional)
-   rake install
-   
-=== Gem install
-   rake test (optional)
-   rake install_gem
+  gem install use
 
 == Synopsis
-   require 'use'
+  require 'use'
    
-   module Foo
-      def bar
-         puts "hello"
-      end
-      def baz
-         puts "world"
-      end
-   end
+  module Foo
+    def bar
+      puts "hello"
+    end
+    def baz
+      puts "world"
+    end
+  end
 
-   module Test
-      def bar
-         puts "goodbye"
-      end
-      def blah
-         puts "new york"
-      end
-   end
+  module Test
+    def bar
+      puts "goodbye"
+    end
+    def blah
+      puts "new york"
+    end
+  end
 
-   class Zap
-      use Foo, :bar
-      use Test, :blah
-   end
+  class Zap
+    use Foo, :bar
+    use Test, :blah
+  end
 
-   z = Zap.new
+  z = Zap.new
 
-   z.bar  # => "hello"
-   z.blah # => "new york"
-   z.baz  # => NoMethodError
+  z.bar  # => "hello"
+  z.blah # => "new york"
+  z.baz  # => NoMethodError
    
-   # Using the new keywords
-   class MyKlass
-      use Foo, :alias => {:bar => :test}
-   end
+  # Using the new keywords
+  class MyKlass
+    use Foo, :alias => {:bar => :test}
+  end
    
-   m = MyKlass.new
-   m.test # => "hello"
-   m.bar  # => NoMethodError
+  m = MyKlass.new
+  m.test # => "hello"
+  m.bar  # => NoMethodError
    
 == Constants
 USE_VERSION
@@ -75,18 +68,13 @@ USE_VERSION
    bug in Ruby 1.9.x and can be ignored.
    
    If you find any bugs please log them on the project page at
-   http://www.rubyforge.org/projects/shards.
+   https://github.com/djberg96/use
    
-== Questions?
-   Please post your comment or question on one of the forums on the project
-   page at http://www.rubyforge.org/projects/shards.  Just click the 'Forums'
-   link.
-
 == License
    Artistic 2.0
 
 == Copyright
-   (C) 2005-2009, Daniel J. Berger
+   (C) 2005-2014, Daniel J. Berger
    All Rights Reserved
 
 == Author
