@@ -2,13 +2,12 @@ require 'structured_warnings'
 
 unless defined? MethodRedefinedWarning
   # Warning raised in $VERBOSE mode if a method is shadowed.
-  class MethodRedefinedWarning < Warning
-  end
+  class MethodRedefinedWarning < StructuredWarnings::Base; end
 end
 
 class Class
   # The version of the 'use' library
-  USE_VERSION = '1.3.3'
+  USE_VERSION = '1.4.0'.freeze
 
   # Allows you to include mixins in a fine grained manner. Instead of
   # including all methods from a given module, you can can instead mixin
@@ -19,32 +18,35 @@ class Class
   #
   #  # Defines a 'bar' and 'baz' method
   #  module Alpha
-  #     def bar
-  #        puts 'hello'
-  #     end
-  #     def baz
-  #       puts 'world'
-  #     end
+  #    def bar
+  #      puts 'hello'
+  #    end
+  #
+  #    def baz
+  #      puts 'world'
+  #    end
   #  end
   #
   #  # Defines a 'bar', 'blah', and 'zap' methods
   #  module Beta
-  #     def bar
-  #        puts 'goodbye'
-  #     end
-  #     def blah
-  #        puts 'new york'
-  #     end
-  #     def zap
-  #        puts 'zap'
-  #     end
+  #    def bar
+  #      puts 'goodbye'
+  #    end
+  #
+  #    def blah
+  #      puts 'new york'
+  #    end
+  #
+  #    def zap
+  #      puts 'zap'
+  #    end
   #  end
   #
   #  # From the Alpha module, only mixin the 'bar' method. From the Beta
   #  # module exclude the 'bar' and 'zap' methods.
   #  class Zap
-  #     use Alpha, :bar
-  #     use Beta, :exclude => [:bar, :zap]
+  #    use Alpha, :bar
+  #    use Beta, :exclude => [:bar, :zap]
   #  end
   #
   #  z = Zap.new
@@ -56,7 +58,7 @@ class Class
   #
   #  # Alias a method on the fly
   #  class MyKlass
-  #     use Alpha, :alias => {:bar, :test}
+  #    use Alpha, :alias => {:bar, :test}
   #  end
   #
   #  m = MyKlass.new
