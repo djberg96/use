@@ -1,7 +1,7 @@
 == 1.4.0 - 4-Feb-2019
 * Change the license to Apache 2.0.
 * The USE_VERSION constant is now frozen.
-* Updated the structured_warnings dependency, and applie related changes.
+* Updated the structured_warnings dependency, and apply related changes.
 * Updated the gemspec license and depedencies, and added metadata.
 * Rakefile now assumes Rubygems 2 or later.
 * This gem is now signed.
