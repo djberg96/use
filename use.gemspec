@@ -17,6 +17,15 @@ Gem::Specification.new do |spec|
   spec.add_dependency('structured_warnings', '~> 0.3.0')
   spec.add_development_dependency('rake')
 
+  spec.metadata = {
+    'homepage_uri'      => 'https://github.com/djberg96/use',
+    'bug_tracker_uri'   => 'https://github.com/djberg96/use/issues',
+    'changelog_uri'     => 'https://github.com/djberg96/use/blob/master/CHANGES',
+    'documentation_uri' => 'https://github.com/djberg96/use/wiki',
+    'source_code_uri'   => 'https://github.com/djberg96/use',
+    'wiki_uri'          => 'https://github.com/djberg96/use/wiki'
+  }
+
   spec.description = <<-EOF
     The use library solves the multi-mixin problem by allowing you to
     selectively mixin specific methods from a module rather than mixing in
