@@ -3,7 +3,7 @@
   module and alias them on the fly if desired.
 
 == Prerequisites
-  structured_warnings 0.1.1 or later
+  structured_warnings 0.3.0 or later
    
 == Installation
   gem install use
@@ -71,10 +71,10 @@ USE_VERSION
    https://github.com/djberg96/use
    
 == License
-   Artistic 2.0
+   Apache-2.0
 
 == Copyright
-   (C) 2005-2014, Daniel J. Berger
+   (C) 2005-2019, Daniel J. Berger
    All Rights Reserved
 
 == Author
