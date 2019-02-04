@@ -1,22 +1,23 @@
 require 'rubygems'
 
 Gem::Specification.new do |spec|
-  gem.name      = 'use'
-  gem.version   = '1.4.0'
-  gem.author    = 'Daniel J. Berger'
-  gem.license   = 'Apache-2.0'
-  gem.email     = 'djberg96@gmail.com'
-  gem.homepage  = 'https://github.com/djberg96/use'
-  gem.summary   = 'Selectively mixin methods from a given module'
-  gem.test_file = 'test/test_use.rb'
-  gem.files     = Dir['**/*'].reject{ |f| f.include?('git') }
+  spec.name       = 'use'
+  spec.version    = '1.4.0'
+  spec.author     = 'Daniel J. Berger'
+  spec.license    = 'Apache-2.0'
+  spec.email      = 'djberg96@gmail.com'
+  spec.homepage   = 'https://github.com/djberg96/use'
+  spec.summary    = 'Selectively mixin methods from a given module'
+  spec.test_file  = 'test/test_use.rb'
+  spec.files      = Dir['**/*'].reject{ |f| f.include?('git') }
+  spec.cert_chain = ['certs/djberg96_pub.pem']
 
-  gem.extra_rdoc_files  = ['MANIFEST', 'README', 'CHANGES']
+  spec.extra_rdoc_files  = ['MANIFEST', 'README', 'CHANGES']
 
-  gem.add_dependency('structured_warnings', '~> 0.3.0')
-  gem.add_development_dependency('rake')
+  spec.add_dependency('structured_warnings', '~> 0.3.0')
+  spec.add_development_dependency('rake')
 
-  gem.description = <<-EOF
+  spec.description = <<-EOF
     The use library solves the multi-mixin problem by allowing you to
     selectively mixin specific methods from a module rather than mixing in
     all of them. In addition, you can alias methods on the fly as they are
