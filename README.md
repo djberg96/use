@@ -78,9 +78,6 @@ Some versions of Ruby 1.9.x may emit a warning in verbose mode. This is a
 bug in Ruby 1.9.x and can be ignored. I seriously hope you aren't using
 Ruby 1.9 at this point.
    
-If you find any bugs please log them on the project page at
-https://github.com/djberg96/use
-
 ## See Also
 mixology at https://github.com/dan-manges/mixology
 
